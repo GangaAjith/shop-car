@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="registrationDate">Reg Date</string>
+    <string name="registrationYear">Reg Year</string>
+    <string name="gearbox">Gear Box</string>
+    <string name="odometerReading">OdometerReading</string>
+    <string name="numSeats">Number of Seats</string>
+    <string name="engineSize">Engine</string>
+</resources>

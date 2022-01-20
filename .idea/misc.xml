@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.103125" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13518518518518519" />
+        <entry key="app/src/main/res/drawable/button_bg.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.10648148148148148" />
+        <entry key="app/src/main/res/drawable/ic_baseline_refresh_86.xml" value="0.1824074074074074" />
+        <entry key="app/src/main/res/drawable/ic_image_24.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.13518518518518519" />
+        <entry key="app/src/main/res/drawable/round_box.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.10140562248995984" />
+        <entry key="app/src/main/res/layout-w1240dp/fragment_vehicle_details.xml" value="0.12265625" />
+        <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.118359375" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1947463768115942" />
+        <entry key="app/src/main/res/layout/activity_vehicle.xml" value="0.1947463768115942" />
+        <entry key="app/src/main/res/layout/activity_vehicle_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_vehicle_info.xml" value="0.19429347826086957" />
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.1947463768115942" />
+        <entry key="app/src/main/res/layout/details_item.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15896739130434784" />
+        <entry key="app/src/main/res/layout/fragment_vehicle_details.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/image_slider_item.xml" value="0.21331521739130435" />
+        <entry key="app/src/main/res/layout/list_vehicle_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/vehicle_item.xml" value="0.1983695652173913" />
+        <entry key="app/src/main/res/layout/vehicle_list_item.xml" value="0.17346014492753623" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
