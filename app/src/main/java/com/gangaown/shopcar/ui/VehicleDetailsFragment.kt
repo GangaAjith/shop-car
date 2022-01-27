@@ -37,10 +37,11 @@ class VehicleDetailsFragment: Fragment(R.layout.fragment_vehicle_details), Kodei
 
     private val TAG = "VehicleDetailsFragment"
 
-    private lateinit var binding: FragmentVehicleDetailsBinding
+    private var _binding: FragmentVehicleDetailsBinding? = null
+    private val binding get() = _binding!!
 
 
-    private lateinit var viewPagerAdaper: SliderViewPagerAdapter
+    private lateinit var viewPagerAdapter: SliderViewPagerAdapter
 
     private lateinit var vehicleDetailsViewModel: VehicleDetailsViewModel
 
@@ -53,7 +54,7 @@ class VehicleDetailsFragment: Fragment(R.layout.fragment_vehicle_details), Kodei
         savedInstanceState: Bundle?
     ): View {
         //container?.removeAllViews()
-        FragmentVehicleDetailsBinding.inflate(inflater, container, false).also { binding = it }
+       _binding =  FragmentVehicleDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -71,7 +72,11 @@ class VehicleDetailsFragment: Fragment(R.layout.fragment_vehicle_details), Kodei
         }
         initViews(view)
     }
-
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
     private fun initViews(view: View) {
 
         vehicleDetailsViewModel.fetchVehicleDetailsInfo()
@@ -92,6 +97,7 @@ class VehicleDetailsFragment: Fragment(R.layout.fragment_vehicle_details), Kodei
                 vehicleDetailsViewModel.vehicleDetailsDataState.collect {
 
                     val vehicleDetails = it.vehicleDetails
+
                     if(vehicleDetails != null) {
                         binding.ivRefreshDetails.visibility = View.INVISIBLE
                         binding.pbDetails.visibility = View.INVISIBLE
@@ -165,11 +171,11 @@ class VehicleDetailsFragment: Fragment(R.layout.fragment_vehicle_details), Kodei
 
     private fun showImageSlider(imageList: List<ImageGallery>?) {
 
-        val mViewPager = this.binding.carImageSlider
-        SliderViewPagerAdapter(imageList!!).also { viewPagerAdaper = it }
+        val mViewPager = binding.carImageSlider
+        SliderViewPagerAdapter(imageList!!).also { viewPagerAdapter = it }
 
         mViewPager.apply {
-            adapter = viewPagerAdaper
+            adapter = viewPagerAdapter
         }
 
         lifecycleScope.launch{

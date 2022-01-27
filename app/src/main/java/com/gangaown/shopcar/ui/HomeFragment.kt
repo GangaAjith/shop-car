@@ -28,7 +28,8 @@ import org.kodein.di.generic.instance
 class HomeFragment:Fragment(R.layout.fragment_home), KodeinAware{
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private val TAG = "HomeFragment"
 
     override val kodein: Kodein by kodein()
@@ -40,7 +41,7 @@ class HomeFragment:Fragment(R.layout.fragment_home), KodeinAware{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        FragmentHomeBinding.inflate(inflater, container, false).also { binding = it }
+        _binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -66,7 +67,6 @@ class HomeFragment:Fragment(R.layout.fragment_home), KodeinAware{
                         binding.ivRefresh.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.INVISIBLE
                     }
-
                 }
             }
         }
@@ -75,14 +75,16 @@ class HomeFragment:Fragment(R.layout.fragment_home), KodeinAware{
                 homeViewModel.vehiclesData.collect { state ->
 
                     val basicInfo = state.basicInfo
-                    if(basicInfo.isNotEmpty()){
-                        binding.ivRefresh.visibility = View.INVISIBLE
-                        binding.progressBar.visibility = View.INVISIBLE
+                    if(!state.isLoading) {
+                        if (basicInfo.isNotEmpty()) {
+                            binding.ivRefresh.visibility = View.INVISIBLE
+                            binding.progressBar.visibility = View.INVISIBLE
 
-                        adapter.vehicleList = basicInfo
-                        adapter.notifyDataSetChanged()
+                            adapter.vehicleList = basicInfo
+                            adapter.notifyDataSetChanged()
+                        }
                     }
-                    if(state.isLoading){
+                    else{
                         binding.progressBar.visibility = View.VISIBLE
                         binding.ivRefresh.visibility = View.INVISIBLE
                     }
@@ -97,4 +99,9 @@ class HomeFragment:Fragment(R.layout.fragment_home), KodeinAware{
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+
+    }
 }

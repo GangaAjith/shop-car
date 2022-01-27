@@ -12,7 +12,7 @@ import com.google.android.material.imageview.ShapeableImageView
 class SliderViewPagerAdapter(private var mImageList:List<ImageGallery>):
     RecyclerView.Adapter<SliderViewPagerAdapter.SliderImageHolder>() {
 
-    class SliderImageHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    inner class SliderImageHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         private val sliderImageView = itemView.findViewById<ShapeableImageView>(R.id.ivSlider)
 
         fun bind(imageUrl: ImageGallery){
